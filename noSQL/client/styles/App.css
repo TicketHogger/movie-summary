@@ -1,0 +1,129 @@
+.title-box {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  background-color: black;
+}
+
+.title {
+  width: 400px;
+  text-align: center;
+  color: white;
+}
+
+.movie-box {
+  display: flex;
+  color: white;
+  height: 300px;
+}
+
+.main-photo-box {
+  height: 300px;
+  width: 200px;
+  background-color: #4C4C4C;
+  overflow: hidden;
+}
+
+.main-photo {
+  height: 300px;
+  width:  200px; 
+  transition-timing-function: ease-in;
+  transition: 0.5s; 
+}
+
+.mouseEnter {  
+  opacity: 0.75;
+  transform: scale(1.1);
+  height: 300px;
+  width: 200px;
+  transition-timing-function: ease-in;
+  transition: 0.5s; 
+}
+
+.movie-details {
+  height: 300px;
+  width:  200px; 
+  background-color: #262626;
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+}
+
+.release-date {
+  text-align: center;
+  font-family: alternate-gothic-no-1-d,"Futura Condensed","Arial Narrow",Arial,sans-serif;
+  color: #FFF;
+}
+
+.score {
+  text-align: center;
+}
+
+.rating-duration {
+  text-align: center;
+  font-weight: bold;
+  font: "Times New Roman";
+  font-style: italic;
+  font-size: 0.929em;
+  color: #FFF;
+}
+
+.genre {
+  text-align: center;
+  font-weight: bold;
+  font: "Times New Roman";
+  font-style: italic;
+  font-size: 0.929em;
+  color: #FFF;
+}
+
+.synopsis-box {
+  width: 400px;
+  background-color: #4C4C4C;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.synopsis-header {
+  text-align: center;
+}
+
+.synopsis {
+  text-align: center;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #262626;
+  width: 400px;
+}
+
+.photos-container {
+  overflow: hidden;
+}
+
+.photos {
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  height: 150px;
+}
+
+.left-arrow {
+  padding-top: 50px;
+  padding-right: 15px;
+}
+
+.right-arrow {
+  padding-top: 50px;
+  padding-left: 15px;
+}
+
+div {
+  outline: none !important;
+}
+
