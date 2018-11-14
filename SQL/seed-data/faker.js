@@ -18,9 +18,6 @@ const jsonMaker = (num = 100) => {
     movie.mainPhoto = photos[Math.floor(Math.random() * 5)];
     movie.photos = photos;
     movie.genre = genres[Math.floor(Math.random() * 7)];
-    // movie.cast = [faker.name.findName(), faker.name.findName(), faker.name.findName(),
-    //  faker.name.findName(), faker.name.findName()];
-    // movie.director = faker.name.findName();
     movie.releaseDate = releaseDate[Math.floor(Math.random() * 7)];
     movie.synopsis = faker.lorem.paragraph();
 
@@ -29,5 +26,7 @@ const jsonMaker = (num = 100) => {
     });
   }
 };
+
+
 
 jsonMaker();

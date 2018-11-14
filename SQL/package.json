@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "babel-jest": "^23.6.0",
+    "body-parser": "^1.18.3",
     "enzyme-adapter-react-16": "^1.6.0",
     "eslint-plugin-jest": "^21.26.2",
     "express": "^4.16.4",
