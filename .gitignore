@@ -4,7 +4,13 @@
 ## NPM ##
 npm
 npm-debug.log
-node_modules/
+SQL/node_modules/
+SQL/seed-data/generated-data
+
+
+node_modules
+code/seed-data/generated-data
+code/seed-data/summaries.csv
 
 pids
 *.pid
