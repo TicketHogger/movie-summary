@@ -11,11 +11,14 @@
     "seed-data": "node ./seed-data/faker.js; mongoimport --db movie-summary --file seed-data/summaries.json",
     "build": "webpack -d --watch",
     "start": "nodemon server/listen.js",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "generate-data": "node seed-data/faker.js",
+    "seed-db": "psql -U postgres -d luantran < /Users/luantran/Documents/SDC/movie-summary/code/seed-data/insert.sql"
   },
   "dependencies": {
     "babel-jest": "^23.6.0",
     "body-parser": "^1.18.3",
+    "cassandra-driver": "^3.5.0",
     "csv": "^4.0.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "eslint-plugin-jest": "^21.26.2",

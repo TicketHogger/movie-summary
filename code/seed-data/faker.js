@@ -14,7 +14,7 @@ let i = 0;
 let str;
 let canWrite = true;
 
-const stream = fs.createWriteStream(path.join(__dirname, 'summaries.csv'));
+const stream = fs.createWriteStream(path.join(__dirname, 'summariesTest.csv'));
 stream.write('title, score, duration, rating, mainPhoto, photos, genre, releaseDate, synopsis\n');
 
 const write = (num) => {
