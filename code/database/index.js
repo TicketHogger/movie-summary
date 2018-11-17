@@ -28,9 +28,9 @@ const Photo = sequelize.define('photo', {
 const Movie = sequelize.define('movie', {
   id:
     {
-      type: Sequelize.INTEGER,
+      type: Sequelize.STRING,
       primaryKey: true,
-      autoIncrement: true,
+      // autoIncrement: true,
     },
   title: Sequelize.STRING,
   score: Sequelize.STRING,
@@ -47,9 +47,12 @@ Photo.sync({ force: true });
 
 // Movie.belongsTo(Photo, { foreignKey: 'fk_photo' });
 
-Movie.sync({ force: true });
+Movie.sync({ force: true })
+  .then(() => {
+    sequelize.close();
+  });
+
 
 
 module.Movie = Movie;
 module.Photo = Photo;
-

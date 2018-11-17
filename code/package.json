@@ -8,12 +8,12 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "seed-data": "node ./seed-data/faker.js; mongoimport --db movie-summary --file seed-data/summaries.json",
     "build": "webpack -d --watch",
     "start": "nodemon server/listen.js",
     "test": "jest --coverage",
     "generate-data": "node seed-data/faker.js",
-    "seed-db": "psql -U postgres -d luantran < /Users/luantran/Documents/SDC/movie-summary/code/seed-data/insert.sql"
+    "seed-cassandra": "cqlsh --file 'database/schema.cql'",
+    "seed-postgres": " node database/index.js && psql -U postgres -d luantran < /Users/luantran/Documents/SDC/movie-summary/code/seed-data/insert.sql"
   },
   "dependencies": {
     "babel-jest": "^23.6.0",

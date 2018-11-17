@@ -14,12 +14,13 @@ let i = 0;
 let str;
 let canWrite = true;
 
-const stream = fs.createWriteStream(path.join(__dirname, 'summariesTest.csv'));
-stream.write('title, score, duration, rating, mainPhoto, photos, genre, releaseDate, synopsis\n');
+const stream = fs.createWriteStream(path.join(__dirname, 'summaries.csv'));
+// stream.write('title, score, duration, rating, mainPhoto, photos, genre, releaseDate, synopsis\n'); // Cassandra doesnt need headers but need id 
 
 const write = (num) => {
   while (i < num && canWrite) {
     str = '';
+    str += `${i+1},`;
     str += `${faker.lorem.words()},`; // title
     str += `${Math.floor(Math.random() * 100)},`; // id score
     str += `${duration[Math.floor(Math.random() * 6)]},`; // duration
@@ -28,11 +29,11 @@ const write = (num) => {
     str += `${Math.floor(Math.random() * 200)},`; // photos
     str += `${genres[Math.floor(Math.random() * 7)]},`; // genre
     str += `"${releaseDate[Math.floor(Math.random() * 7)]}",`; // releaseDate
-    str += `${faker.lorem.paragraph()} \n`; // synopsis
-
+    str += `${faker.lorem.paragraph()}\n`; // synopsis
+    
     canWrite = stream.write(str);
     i += 1;
-
+    
     console.log(`${(i / num * 100).toFixed(2)}%`);
   }
 
@@ -43,7 +44,6 @@ const write = (num) => {
     stream.end();
     console.log(`Done seeding ${num} primary data points !`);
   }
-
 };
 
 write(numData);
