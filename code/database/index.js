@@ -37,7 +37,7 @@ const Movie = sequelize.define('movie', {
   duration: Sequelize.STRING,
   rating: Sequelize.STRING,
   mainPhoto: Sequelize.STRING,
-  photo: Sequelize.STRING,
+  photos: Sequelize.STRING,
   genre: Sequelize.STRING,
   releaseDate: Sequelize.STRING,
   synopsis: Sequelize.TEXT,
