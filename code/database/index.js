@@ -19,37 +19,38 @@ const Photo = sequelize.define('photo', {
       type: Sequelize.INTEGER,
       primaryKey: true,
       autoIncrement: true,
-
     },
-  photoUrl: Sequelize.STRING,
+  photoUrl: Sequelize.TEXT,
+  // movieId: Sequelize.INTEGER,
 }, { timestamps: false });
 
 
 const Movie = sequelize.define('movie', {
   id:
     {
-      type: Sequelize.STRING,
+      type: Sequelize.INTEGER,
       primaryKey: true,
-      // autoIncrement: true,
+      autoIncrement: true,
     },
   title: Sequelize.STRING,
-  score: Sequelize.STRING,
+  score: Sequelize.INTEGER,
   duration: Sequelize.STRING,
   rating: Sequelize.STRING,
   mainPhoto: Sequelize.STRING,
-  photos: Sequelize.STRING,
+  // photos: Sequelize.INTEGER, // Switch this to Int tomorrow
   genre: Sequelize.STRING,
   releaseDate: Sequelize.STRING,
   synopsis: Sequelize.TEXT,
 }, { timestamps: false });
 
-Photo.sync({ force: true });
+Photo.belongsTo(Movie, { foreignKey: 'movieId' });
 
-// Movie.belongsTo(Photo, { foreignKey: 'fk_photo' });
-
-Movie.sync({ force: true })
+Photo.sync({ force: true })
   .then(() => {
-    sequelize.close();
+    Movie.sync({ force: true })
+      .then(() => {
+        sequelize.close();
+      });
   });
 
 

@@ -1,6 +1,7 @@
--- COPY public.movies(title,score,duration, rating, mainPhoto, photos, genre, releaseDate, synopsis) 
--- FROM '/Users/luantran/Documents/SDC/movie-summary/code/seed-data/summariesTest.csv' DELIMITER ',' CSV HEADER;
 
-COPY movies(id, title, score, duration, rating, "mainPhoto", photos, genre, "releaseDate", synopsis)
-FROM '/Users/luantran/Documents/SDC/movie-summary/code/seed-data/summaries.csv' DELIMITER ',' CSV;
 
+COPY movies(title, score, duration, rating, "mainPhoto", genre, "releaseDate", synopsis)
+FROM '/Users/luantran/Documents/SDC/movie-summary/code/seed-data/summaries.csv' DELIMITER ',' CSV HEADER;
+
+COPY photos("photoUrl","movieId") 
+FROM '/Users/luantran/Documents/SDC/movie-summary/code/seed-data/imageUrls.csv' DELIMITER ',' CSV;

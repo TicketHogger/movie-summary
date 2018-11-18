@@ -32,3 +32,4 @@ dist/
 
 #webpack
 public/bundle.js
+code/seed-data/imageUrls.csv

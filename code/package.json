@@ -11,7 +11,7 @@
     "build": "webpack -d --watch",
     "start": "nodemon server/listen.js",
     "test": "jest --coverage",
-    "generate-data": "node seed-data/faker.js",
+    "generate-data": "node seed-data/writeTenMillionPrimary.js",
     "seed-cassandra": "cqlsh --file 'database/schema.cql'",
     "seed-postgres": " node database/index.js && psql -U postgres -d luantran < /Users/luantran/Documents/SDC/movie-summary/code/seed-data/insert.sql"
   },
