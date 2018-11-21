@@ -14,19 +14,19 @@ const sequelize = new Sequelize('luantran','', '', {
 
 
 const Photo = sequelize.define('photo', {
-  id:
+  photo_id:
     {
       type: Sequelize.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
   photoUrl: Sequelize.TEXT,
-  // movieId: Sequelize.INTEGER,
+  movieId: Sequelize.INTEGER,
 }, { timestamps: false });
 
 
 const Movie = sequelize.define('movie', {
-  id:
+  movie_id:
     {
       type: Sequelize.INTEGER,
       primaryKey: true,
@@ -43,11 +43,11 @@ const Movie = sequelize.define('movie', {
   synopsis: Sequelize.TEXT,
 }, { timestamps: false });
 
-Photo.belongsTo(Movie, { foreignKey: 'movieId' });
+// Photo.belongsTo(Movie, { foreignKey: 'movieId' });
 
-Photo.sync({ force: true })
+Movie.sync({ force: true })
   .then(() => {
-    Movie.sync({ force: true })
+    Photo.sync({ force: true })
       .then(() => {
         sequelize.close();
       });

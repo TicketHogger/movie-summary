@@ -5,3 +5,4 @@ FROM '/Users/luantran/Documents/SDC/movie-summary/code/seed-data/summaries.csv' 
 
 COPY photos("photoUrl","movieId") 
 FROM '/Users/luantran/Documents/SDC/movie-summary/code/seed-data/imageUrls.csv' DELIMITER ',' CSV;
+

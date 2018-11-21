@@ -26,10 +26,10 @@ let str;
 let canWrite = true;
 
 const stream = fs.createWriteStream(path.join(__dirname, 'imageUrls.csv'));
-// stream.write('title, score, duration, rating, mainPhoto, photos, genre, releaseDate, synopsis\n'); // Cassandra doesnt need headers but need id 
+stream.write('photo_id, imageUrl, movieId \n'); // Cassandra doesnt need headers but need id 
 const write = (num) => {
   while (i < num && canWrite) {
-    const chunk = `${photos[i % 1000]},` + `${Math.floor(Math.random() * numData)}` + '\n';
+    const chunk = `${i + 1}, ${photos[i % 1000]},` + `${Math.floor(Math.random() * numData)}` + '\n';
     canWrite = stream.write(chunk);
     i += 1;
 

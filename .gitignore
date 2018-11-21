@@ -33,3 +33,4 @@ dist/
 #webpack
 public/bundle.js
 code/seed-data/imageUrls.csv
+code/seed-data/summariesCassandra.csv
