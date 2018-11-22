@@ -13,7 +13,7 @@ for (let i = 0; i < 1000; i += 1) {
   photos.push(`https://s3-us-west-1.amazonaws.com/hopping-couch-images/SDC-images/generated-data/dog${i}.png`);
 }
 
-const numData = 2;
+const numData = 10000000;
 let i = 0;
 let movie;
 let canWrite = true;
