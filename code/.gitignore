@@ -4,13 +4,7 @@
 ## NPM ##
 npm
 npm-debug.log
-SQL/node_modules/
-SQL/seed-data/generated-data
-
-
-node_modules
-code/seed-data/generated-data
-code/seed-data/summaries.csv
+node_modules/
 
 pids
 *.pid
@@ -32,5 +26,3 @@ dist/
 
 #webpack
 public/bundle.js
-code/seed-data/imageUrls.csv
-code/seed-data/summariesCassandra.csv
