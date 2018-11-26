@@ -1,14 +1,15 @@
 const client = require('./cassandra-driver');
 
 const query = {
-  getId: 'SELECT * from movies WHERE movie_id = ?',
+  getId: 'SELECT * FROM movies WHERE movie_id = ?',
   getTitle: 'SELECT * from movies WHERE title = ?',
   create: 'INSERT INTO movies JSON ?',
+  delete: 'DELETE FROM movies WHERE movie_id = ?',
+  put: 'UPDATE movies WHERE',
 };
 
 
 module.exports.getId = (id, cb) => {
-  console.log('movie_id:', id);
   client.execute(query.getId, [id], { prepare: true })
     .then((result) => {
       const { rows } = result;
@@ -17,7 +18,6 @@ module.exports.getId = (id, cb) => {
 };
 
 module.exports.getTitle = (title, cb) => {
-  console.log('title:', title);
   client.execute(query.getTitle, [title], { prepare: true })
     .then((result) => {
       const { rows } = result;
@@ -26,8 +26,7 @@ module.exports.getTitle = (title, cb) => {
 };
 
 module.exports.create = (record, cb) => {
-  console.log(JSON.stringify(record));
-  client.execute(query.create, [JSON.stringify(record)], { parse: true })
+  client.execute(query.create, [JSON.stringify(record)], { prepare: true })
     .then((result) => {
       cb(result);
     })
@@ -35,3 +34,19 @@ module.exports.create = (record, cb) => {
       throw err;
     });
 };
+
+module.exports.delete = (movieId, cb) => {
+  client.execute(query.delete, [movieId], { prepare: true })
+    .then((result) => {
+      cb(result);
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
+
+module.exports.put = (movieId, cb) => {
+
+
+
+}

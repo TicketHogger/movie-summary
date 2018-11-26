@@ -1,15 +1,21 @@
+const newrelic = require('newrelic');
+
 const express = require('express');
+const compression = require('compression');
 const bodyParser = require('body-parser');
-const app = express();
 const path = require('path');
 const morgan = require('morgan');
 const db = require('../database/API');
+const cors = require('cors');
 
+const app = express();
+app.use(compression());
 app.use(morgan('dev'));
+app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/../public')));
 
-app.get('/api/movies/movieId/:movieId/summary', (req, res) => {
+app.get('/api/movies/:movieId/summary', (req, res) => {
   const { movieId } = req.params;
   db.getId(movieId, (record) => {
     res.json(record);
@@ -33,10 +39,12 @@ app.put('/api/movies/:movieId/summary', (req, res) => {
   // db.modify(req, res);
 });
 
-app.delete('/api/movies/:movieId/summary', (req, res) => {
-  const { query } = req.body;
-  db.delete(query, res);
-  res.end('DELETE RECEIVED');
+app.delete('/api/movies/:movieId', (req, res) => {
+  const { movieId } = req.params;
+  console.log(movieId);
+  db.delete(movieId, (result) => {
+    res.json(result);
+  });
 });
 
 
