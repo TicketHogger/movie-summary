@@ -2,7 +2,7 @@ const client = require('../database/cassandra-driver');
 const fs = require('fs');
 const readline = require('readline');
 
-const records = fs.createReadStream('../seed-data/summariesCassandra.csv');
+const records = fs.createReadStream('seed-data/summariesCassandra.csv');
 
 const stream = readline.createInterface({
   input: records,

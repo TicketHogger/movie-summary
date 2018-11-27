@@ -2,9 +2,9 @@ version: '3'
 
 services:
   database:
-    image: cassandra
+    image: cassandra:latest
     ports:
-      - '27017:27017'
+      - '9042:9042'
 
   summaryserver:
     build: ./

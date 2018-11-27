@@ -9,10 +9,10 @@
   },
   "scripts": {
     "build": "webpack -d --watch",
-    "start": "nodemon server/index.js",
+    "start": "pm2-runtime ecosystem.config.js",
     "test": "jest --coverage",
-    "generate-data": "node seed-data/writeTenMillionPrimary.js",
-    "seed-cassandra": "cqlsh --file 'database/schema.cql'",
+    "generate-data": "node seed-data/writeTenMillionCass.js",
+    "seed-cassandra": "node ./seed-data/seedCass.js",
     "seed-postgres": " node database/index.js && psql -U postgres -d luantran < /Users/luantran/Documents/SDC/movie-summary/code/seed-data/insert.sql"
   },
   "dependencies": {
@@ -54,7 +54,6 @@
     "enzyme": "^3.7.0",
     "eslint": "^5.8.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",

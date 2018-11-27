@@ -38,7 +38,7 @@ const write = (num) => {
     movie.duration = `${duration[Math.floor(Math.random() * 6)]}`; // duration
     movie.rating = `${rating[Math.floor(Math.random() * 5)]}`; // rating
     movie.mainPhoto = `${photos[Math.floor(Math.random() * 5)]}`; // mainPhoto
-    movie.photos = generateGroupPhotos(3); // photos
+    movie.photos = generateGroupPhotos(5); // photos
     movie.genre = `${genres[Math.floor(Math.random() * 7)]}`; // genre
     movie.releaseDate = `"${releaseDate[Math.floor(Math.random() * 7)]}"`; // releaseDate escaped
     movie.synopsis = `${faker.lorem.paragraph()}`; // synopsis
