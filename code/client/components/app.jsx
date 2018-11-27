@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import '../styles/App.css';
 import RightArrow from './RightArrow';
 import LeftArrow from './LeftArrow';
@@ -10,9 +11,12 @@ class App extends React.Component {
     super();
     this.state = {
       summary: {
+        movie_id: 0,
         title: 'wedding crashers',
         genre: 'comedy',
-        releaseDate: 'June 20th, 2000',
+        duration: '',
+        mainphoto: '',
+        releasedate: 'June 20th, 2000',
         photos: [],
         synopsis: '',
       },
@@ -28,14 +32,14 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const id = Math.floor(Math.random() * 100);
-    fetch(`/api/movies/${id}/summary`)
+    const id = Math.floor(Math.random() * 10000000);
+    axios.get(`http://127.0.0.1:3007/api/movies/${id}/summary`)
       .then((response) => {
-        response.json().then((data) => {
-          this.setState({
-            summary: data,
-          });
+        const { data } = response;
+        this.setState({
+          summary: data[0],
         });
+        
       })
       .catch(() => { this.setState({ summary: { title: 'ERROR: COULD NOT RETRIEVE DATA' } }); });
   }
@@ -76,7 +80,8 @@ class App extends React.Component {
 
   render() {
     const { summary } = this.state;
-    const titleAndYear = `${summary.title.toUpperCase()} (${summary.releaseDate.slice(-4)})`;
+    console.log(summary);
+    const titleAndYear = `${summary.title.toUpperCase()} (${summary.releasedate.slice(-5, -1)})`;
     const { translateValue } = this.state;
     const { mainPhotoClass } = this.state;
 
@@ -87,7 +92,7 @@ class App extends React.Component {
         </div>
 
         <div className="movie-box">
-          <div className="main-photo-box"><img className={mainPhotoClass} alt="movie poster" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} src={summary.mainPhoto} /></div>
+          <div className="main-photo-box"><img className={mainPhotoClass} alt="movie poster" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} src={summary.mainphoto} /></div>
           <div className="movie-details">
             <h2 className="release-date">{summary.releaseDate}</h2>
             <div className="rating-duration">

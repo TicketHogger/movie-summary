@@ -1,5 +1,5 @@
 # What image do you want to start building on?
-FROM node:latest
+FROM keymetrics/pm2:latest-alpine
 
 # Make a folder in your image where your app's source code can live
 RUN mkdir -p /src/app
@@ -8,10 +8,11 @@ RUN mkdir -p /src/app
 WORKDIR /src/app
 
 # What source code do you what to copy, and where to put it?
-Copy . /src/app
+COPY . /src/app
 
 # Does your app have any dependencies that should be installed?
-RUN yarn install
+
+RUN npm install
 
 # What port will the container talk to the outside world with once created?
 EXPOSE 3007

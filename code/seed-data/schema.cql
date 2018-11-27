@@ -18,8 +18,4 @@ CREATE TABLE movies(
     PRIMARY KEY (movie_id, title)
     );
 
-
--- COPY movies (movie_id, title, score, duration, rating, mainPhoto, "photos", genre,releaseDate, synopsis)  FROM '/Users/luantran/Documents/SDC/movie-summary/code/seed-data/summariesCassandra.csv' WITH HEADER = TRUE AND DELIMITER=',';
-COPY movies FROM '/Users/luantran/Documents/SDC/movie-summary/code/seed-data/summariesCassandra.csv' WITH HEADER = TRUE AND DELIMITER=',';
-
 CREATE INDEX movies_title on movies(title);

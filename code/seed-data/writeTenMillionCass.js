@@ -13,7 +13,7 @@ for (let i = 0; i < 1000; i += 1) {
   photos.push(`https://s3-us-west-1.amazonaws.com/hopping-couch-images/SDC-images/generated-data/dog${i}.png`);
 }
 
-const numData = 2;
+const numData = 10000000;
 let i = 0;
 let movie;
 let canWrite = true;
@@ -38,7 +38,7 @@ const write = (num) => {
     movie.duration = `${duration[Math.floor(Math.random() * 6)]}`; // duration
     movie.rating = `${rating[Math.floor(Math.random() * 5)]}`; // rating
     movie.mainPhoto = `${photos[Math.floor(Math.random() * 5)]}`; // mainPhoto
-    movie.photos = generateGroupPhotos(3); // photos
+    movie.photos = generateGroupPhotos(5); // photos
     movie.genre = `${genres[Math.floor(Math.random() * 7)]}`; // genre
     movie.releaseDate = `"${releaseDate[Math.floor(Math.random() * 7)]}"`; // releaseDate escaped
     movie.synopsis = `${faker.lorem.paragraph()}`; // synopsis
