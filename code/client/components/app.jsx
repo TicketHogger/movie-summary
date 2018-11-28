@@ -33,7 +33,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const id = Math.floor(Math.random() * 10000000);
-    axios.get(`http://127.0.0.1:3007/api/movies/${id}/summary`)
+    axios.get(`http://18.222.212.2:3007/api/movies/${id}/summary`)
       .then((response) => {
         const { data } = response;
         this.setState({

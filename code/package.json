@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "webpack -d",
-    "start": "pm2-runtime ecosystem.config.js",
+    "start": "pm2 start ecosystem.config.js",
     "test": "jest --coverage",
     "generate-data": "node seed-data/writeTenMillionCass.js",
     "seed-cassandra": "node ./seed-data/seedCass.js",
