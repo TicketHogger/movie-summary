@@ -1,11 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-import ip from 'public-ip';
 import '../styles/App.css';
 import RightArrow from './RightArrow';
 import LeftArrow from './LeftArrow';
 import Photo from './Photo';
 import Synopsis from './Synopsis';
+
+
+const HOST = process.env.HOST || '127.0.0.1';
 
 class App extends React.Component {
   constructor() {
@@ -33,18 +35,22 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    ip.v4().then((ipV4) => {
-      console.log(ipV4);
-      const id = Math.floor(Math.random() * 10000000);
-      axios.get(`http://${ipV4}:3007/api/movies/${id}/summary`)
-        .then((response) => {
-          const { data } = response;
-          this.setState({
-            summary: data[0],
-          });
-        })
-        .catch(() => { this.setState({ summary: { title: 'ERROR: COULD NOT RETRIEVE DATA' } }); });
-    });
+    console.log(process.env.HOST);
+    console.log(process.env.DB_HOST);
+
+    axios.get(`http://${HOST}/latest/meta-data/public-ipv4`)
+      .then((ip) => {
+        console.log(ip);
+        const id = Math.floor(Math.random() * 10000000);
+        axios.get(`http://${ip}:3007/api/movies/${id}/summary`)
+          .then((response) => {
+            const { data } = response;
+            this.setState({
+              summary: data[0],
+            });
+          })
+          .catch(() => { this.setState({ summary: { title: 'ERROR: COULD NOT RETRIEVE DATA' } }); });
+      });
   }
 
   nextPhoto() {
