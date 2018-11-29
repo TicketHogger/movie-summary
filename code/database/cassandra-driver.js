@@ -1,9 +1,9 @@
 
 const cassandra = require('cassandra-driver');
+const DB_HOST = process.env.DB_HOST || '172.31.41.197';
 const client = new cassandra.Client({ 
-  contactPoints: ['3.17.63.47'],
+  contactPoints: [DB_HOST + ''],
   keyspace: 'luantran',
 });
-// const client = new cassandra.Client({ contactPoints: ['172.17.0.2'], keyspace: 'luantran' });
 
 module.exports = client;

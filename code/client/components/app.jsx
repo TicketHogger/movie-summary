@@ -6,6 +6,9 @@ import LeftArrow from './LeftArrow';
 import Photo from './Photo';
 import Synopsis from './Synopsis';
 
+
+const HOST = process.env.HOST || '127.0.0.1';
+
 class App extends React.Component {
   constructor() {
     super();
@@ -32,7 +35,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://169.254.169.254/latest/meta-data/public-ipv4')
+    console.log(process.env.HOST);
+    console.log(process.env.DB_HOST);
+
+    axios.get(`http://${HOST}/latest/meta-data/public-ipv4`)
       .then((ip) => {
         console.log(ip);
         const id = Math.floor(Math.random() * 10000000);

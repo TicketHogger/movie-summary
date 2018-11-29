@@ -8,38 +8,32 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build": "webpack -d --watch",
+    "build": "webpack -d",
     "start": "pm2 start ecosystem.config.js",
     "test": "jest --coverage",
     "generate-data": "node seed-data/writeTenMillionCass.js",
-    "seed-cassandra": "cqlsh --file './seed-data/schema.cql' && node ./seed-data/seedCass.js",
-    "seed-postgres": " node database/index.js && psql -U postgres -d luantran < /Users/luantran/Documents/SDC/movie-summary/code/seed-data/insert.sql"
+    "seed-cassandra": "cqlsh --file './seed-data/schema.cql' && node ./seed-data/seedCass.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "babel-jest": "^23.6.0",
     "body-parser": "^1.18.3",
     "cassandra-driver": "^3.5.0",
     "compression": "^1.7.3",
     "cors": "^2.8.5",
-    "csv": "^4.0.0",
+    "dotenv": "^6.1.0",
     "enzyme-adapter-react-16": "^1.6.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^21.26.2",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
     "express": "^4.16.4",
-    "jest-environment-enzyme": "^7.0.0",
-    "linebyline": "^1.3.0",
-    "mongoose": "^5.3.7",
+    "jest-fetch-mock": "^2.0.1",
     "morgan": "^1.9.1",
-    "nodemon": "^1.18.6",
-    "pg": "^7.6.1",
-    "pg-hstore": "^2.3.2",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "react-responsive-carousel": "^3.1.43",
-    "regenerator-runtime": "^0.12.1",
-    "sequelize": "^4.41.2",
-    "winston": "^3.1.0"
+    "sequelize": "^4.41.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
