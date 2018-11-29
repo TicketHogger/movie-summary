@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "webpack -d --watch",
-    "start": "pm2-runtime ecosystem.config.js",
+    "start": "pm2 start ecosystem.config.js",
     "test": "jest --coverage",
     "generate-data": "node seed-data/writeTenMillionCass.js",
     "seed-cassandra": "cqlsh --file './seed-data/schema.cql' && node ./seed-data/seedCass.js",
