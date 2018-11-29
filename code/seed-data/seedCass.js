@@ -12,6 +12,8 @@ const query = 'INSERT INTO luantran.movies JSON ?;';
 let lineCounter = 0;
 const lineTarget = 10000000;
 
+console.log('Begin seeding:');
+
 stream.on('line', (line) => {
   if (line) {
     lineCounter += 1;
