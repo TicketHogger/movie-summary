@@ -7,6 +7,7 @@ const path = require('path');
 const morgan = require('morgan');
 const db = require('../database/API');
 const cors = require('cors');
+const loaderIoToken = 'loaderio-22003471f69d6f7c7dd03c4fceeef835';
 
 const app = express();
 app.use(compression());
@@ -14,6 +15,10 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/../public')));
+
+app.get('/loaderio-ceed3057e3018f2a2e636633ed2b8e42', (req, res) => {
+res.end('loaderio-ceed3057e3018f2a2e636633ed2b8e42');
+});
 
 app.get('/api/movies/:movieId/summary', (req, res) => {
   const { movieId } = req.params;
