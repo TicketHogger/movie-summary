@@ -38,11 +38,8 @@ class App extends React.Component {
     console.log(process.env.HOST);
     console.log(process.env.DB_HOST);
 
-    axios.get(`http://${HOST}/latest/meta-data/public-ipv4`)
-      .then((ip) => {
-        console.log(ip);
         const id = Math.floor(Math.random() * 10000000);
-        axios.get(`http://${ip}:3007/api/movies/${id}/summary`)
+        axios.get(`http://${HOST}:3007/api/movies/${id}/summary`)
           .then((response) => {
             const { data } = response;
             this.setState({
@@ -50,7 +47,6 @@ class App extends React.Component {
             });
           })
           .catch(() => { this.setState({ summary: { title: 'ERROR: COULD NOT RETRIEVE DATA' } }); });
-      });
   }
 
   nextPhoto() {
